@@ -391,7 +391,9 @@
     margin: -5px 0 24px;
     padding-right: 36px;
 }
-.lower-contact h2 em { color: #f1faff; }
+.lower-contact h2 em {
+    color: #f1faff;
+}
 .lower-contact {
     position: relative;
     background: #1672bf;
@@ -511,9 +513,8 @@
     inset: 10px;
     border: 1px solid #bdddf2;
 }
-.lower-contact-letter > span:first-child {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-size: 21px;
+.lower-letter-logo .momento-logo {
+    width: 116px;
 }
 .lower-contact-letter > svg {
     width: 20px;
@@ -567,12 +568,8 @@
     letter-spacing: -0.03em;
     line-height: 1;
 }
-.lower-footer-brand > a svg {
-    width: 16px;
-    height: 16px;
-    color: var(--lower-blue);
-    align-self: flex-start;
-    margin-top: 5px;
+.lower-footer-brand .momento-logo {
+    width: 225px;
 }
 .lower-footer-brand > p {
     max-width: 250px;

@@ -33,7 +33,7 @@ Jika nomor WhatsApp/email bisnis sudah tersedia, isi `VITE_MOMENTO_WHATSAPP` (ko
 
 ## Isi landing
 
-- Hero dengan amplop, segel `m·`, dan dua undangan Momento yang dibangun di HTML/CSS.
+- Hero dengan amplop, segel logo resmi Momento, dan dua undangan yang dibangun di HTML/CSS.
 - Preview warna undangan yang dapat diganti.
 - Enam desain pilihan asli: Royal Blue, Silver Tides, Verdant Vow, Sepucuk Janji, Heritage Vows, Sekar Kinasih.
 - Preview buku tamu dengan pencarian data ilustrasi.
@@ -42,11 +42,13 @@ Jika nomor WhatsApp/email bisnis sudah tersedia, isi `VITE_MOMENTO_WHATSAPP` (ko
 
 RSVP, personal guest links, dan check-in yang dijelaskan adalah alur undangan pernikahan yang tersedia di aplikasi Momento. Demo editor tidak menyimpan/publish. Landing tidak menyertakan backend dashboard, akun, database, atau fitur pembayaran.
 
+Logo resmi berasal dari file yang diberikan pemilik Momento. Aset PNG transparan disimpan di `public/branding/`; sumber dan proses persiapannya tercatat di `public/branding/BRANDING.md`.
+
 Foto contoh berasal dari aset yang telah dibuat untuk project Momento, lalu dioptimalkan menjadi WebP. Total enam foto sekitar 723 KB. Provenance ada di `public/assets/SOURCES.md`; font beserta lisensi OFL disimpan lokal.
 
 ## Struktur
 
-`src/App.jsx` untuk header, hero, preview undangan, koleksi, buku tamu, dan form brief. `src/LowerSections.jsx` untuk cerita brand, alur, FAQ, dan footer. `src/config.js` untuk tujuan aplikasi/kontak. `src/assets.js` untuk foto dan katalog pilihan.
+`src/Brand.jsx` menampilkan logo resmi secara konsisten. `src/App.jsx` untuk header, hero, preview undangan, koleksi, buku tamu, dan form brief. `src/LowerSections.jsx` untuk cerita brand, alur, FAQ, dan footer. `src/config.js` untuk tujuan aplikasi/kontak. `src/assets.js` untuk foto dan katalog pilihan.
 
 ## Validasi
 

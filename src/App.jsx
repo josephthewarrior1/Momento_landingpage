@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ASSETS, MOMENTO_TEMPLATES } from './assets.js';
 import { APP_URL, CONTACT_EMAIL, WHATSAPP_NUMBER } from './config.js';
 import LowerSections from './LowerSections.jsx';
+import { Brand, BrandMark } from './Brand.jsx';
 
 const TEXT = {
     id: {
@@ -355,18 +356,6 @@ export function Icon({ name = 'arrow', size = 24, ...props }) {
         </svg>
     );
 }
-export function Brand() {
-    return (
-        <span className="momento-brand">
-            <span className="momento-mark">
-                m<span>·</span>
-            </span>
-            <span className="momento-wordmark">
-                momento<span>INVITATION STUDIO</span>
-            </span>
-        </span>
-    );
-}
 function Eyebrow({ children }) {
     return (
         <div className="eyebrow">
@@ -438,7 +427,7 @@ function InvitationCard({ image, style = 'blue', compact = false }) {
                 A little beginning.
                 <br />A lifetime of stories.
             </span>
-            <span className="cover-signature">momento</span>
+            <Brand className="cover-signature" />
         </div>
     );
 }
@@ -736,7 +725,7 @@ export default function App() {
                                 <span className="envelope-bottom-fold" />
                             </div>
                             <div className="momento-seal">
-                                m<span>·</span>
+                                <BrandMark />
                             </div>
                             <span className="envelope-tag">
                                 A MOMENT MADE YOURS.

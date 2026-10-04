@@ -11,7 +11,7 @@ These six photos are local WebP exports of the invitation studio's own AI-genera
 | momento-heritage-cover.webp | public/assets/invitations/generated-heritage-cover.png | Heritage Vows, heritage, Klasik |
 | momento-javanese-cover.webp | public/assets/invitations/generated-java-couple.png | Sekar Kinasih, javanese, Adat |
 
-Template metadata matches src/features/invitations/themeCatalog.js in the main Momento studio. Preview URLs are /templates/:id. The envelope icon is copied from public/momento-icon.svg in the studio. The existing local Inclusive Sans and Instrument Serif font files are retained as requested.
+Template metadata matches src/features/invitations/themeCatalog.js in the main Momento studio. Preview URLs are /templates/:id. The official Momento logo and loop-shaped M emblem were supplied by the owner. Transparent PNGs are stored in `public/branding/`; provenance and preparation details are documented in `public/branding/BRANDING.md`. The existing local Inclusive Sans and Instrument Serif font files are retained as requested.
 
 Font licenses are bundled in `font-licenses/`. The originals are from the official Google Fonts repository:
 

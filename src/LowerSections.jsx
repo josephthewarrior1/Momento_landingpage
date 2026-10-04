@@ -1,5 +1,6 @@
 import { useId, useState } from 'react';
 import './lower-sections.css';
+import { Brand, BrandMark } from './Brand.jsx';
 
 const copy = {
     id: {
@@ -224,7 +225,9 @@ function StepPreview({ index, t }) {
             )}
             {index === 1 && (
                 <div className="lower-preview-share">
-                    <span className="lower-preview-monogram">m.</span>
+                    <span className="lower-preview-monogram">
+                        <BrandMark />
+                    </span>
                     <small>{t.sampleGuest}</small>
                     <span className="lower-preview-recipient">
                         {t.sampleGuestName}
@@ -424,7 +427,7 @@ export default function LowerSections({
                     <div className="lower-contact-art" aria-hidden="true">
                         <div className="lower-contact-orbit" />
                         <div className="lower-contact-letter">
-                            <span>momento</span>
+                            <Brand className="lower-letter-logo" />
                             <Star />
                             <em>
                                 To a<br />
@@ -436,7 +439,9 @@ export default function LowerSections({
                                 made for your moments
                             </span>
                         </div>
-                        <div className="lower-contact-seal">m.</div>
+                        <div className="lower-contact-seal">
+                            <BrandMark />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -445,8 +450,7 @@ export default function LowerSections({
                     <div className="lower-footer-top">
                         <div className="lower-footer-brand">
                             <a href="#top" aria-label="Momento">
-                                <span>momento</span>
-                                <Star />
+                                <Brand />
                             </a>
                             <p>{t.footerText}</p>
                         </div>

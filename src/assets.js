@@ -3,7 +3,8 @@
 const local = (filename) => `/assets/${filename}`;
 
 export const ASSETS = {
-    logo: local('momento-icon.svg'),
+    logo: '/branding/momento-logo-blue.png',
+    mark: '/branding/momento-mark-blue.png',
     inclusiveSans: local('font-inclusive-sans.woff2'),
     instrumentSerif: local('font-instrument-serif.woff2'),
     royal: local('momento-royal-cover.webp'),
