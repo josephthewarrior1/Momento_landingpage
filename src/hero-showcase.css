@@ -1,0 +1,400 @@
+.hero-showcase {
+    --showcase-ink: #163650;
+    --showcase-blue: #0866ff;
+    --showcase-paper: #fafdff;
+    position: relative;
+    isolation: isolate;
+    height: 560px;
+    min-width: 0;
+    margin: 0;
+}
+.hero-photo-invitation {
+    position: absolute;
+    inset: 16px 16px 88px auto;
+    width: 72%;
+    border: 7px solid white;
+    border-radius: 5px;
+    background: #a4bdcf;
+    overflow: hidden;
+    transform: rotate(5deg);
+    box-shadow: 0 22px 55px #1636501c;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.hero-photo-invitation:hover {
+    transform: rotate(2deg) translateY(-4px);
+    box-shadow: 0 28px 60px #16365029;
+}
+.hero-couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 53% 60%;
+}
+.hero-photo-invitation::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #16365018, transparent 45%, #0b263161);
+    pointer-events: none;
+}
+.hero-photo-heading,
+.hero-photo-footer {
+    position: absolute;
+    z-index: 1;
+    color: white;
+}
+.hero-photo-heading {
+    inset: 26px 14px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+    text-shadow: 0 1px 6px #16365038;
+}
+.hero-photo-heading > span:not(.hero-photo-monogram) {
+    font-size: 7px;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+.hero-photo-heading .hero-photo-monogram {
+    font-family: var(--serif);
+    font-size: 36px;
+    line-height: 1.1;
+}
+.hero-photo-monogram i {
+    font-size: 25px;
+}
+.hero-photo-footer {
+    inset: auto 24px 50px 43%;
+}
+.hero-view-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0;
+    padding-top: 10px;
+    border-top: 1px solid #ffffff6b;
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.6px;
+}
+.hero-view-label > span {
+    font-size: 16px;
+}
+.hero-paper-invitation {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 108px;
+    width: 43%;
+    padding: 22px 22px 25px;
+    color: var(--showcase-ink);
+    background: var(--showcase-paper);
+    border: 1px solid #cee2ef;
+    border-radius: 3px;
+    box-shadow: 0 16px 35px #16365014;
+    transform: rotate(-7deg);
+    text-align: center;
+}
+.hero-paper-invitation::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid #e1ebf1;
+    pointer-events: none;
+}
+.hero-paper-top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+.hero-paper-top .momento-logo {
+    width: 79px;
+}
+.hero-paper-top > span:last-child {
+    color: #6b879c;
+    font-size: 6px;
+    letter-spacing: 1.1px;
+    white-space: nowrap;
+}
+.hero-paper-eyebrow {
+    display: block;
+    margin-top: 29px;
+    font-size: 6px;
+    letter-spacing: 1.7px;
+}
+.hero-paper-names {
+    margin-top: 16px;
+    font-family: var(--serif);
+    font-size: 45px;
+    line-height: 0.98;
+}
+.hero-paper-names > span {
+    display: block;
+    margin: 6px 0;
+    font-size: 26px;
+    font-style: italic;
+    color: var(--showcase-blue);
+}
+.hero-paper-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    margin-top: 24px;
+    padding: 12px 0;
+    border-block: 1px solid #d8e6ef;
+}
+.hero-paper-date > span {
+    font-size: 8px;
+    letter-spacing: 1.2px;
+}
+.hero-paper-date > strong {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1;
+    padding-inline: 14px;
+    border-inline: 1px solid #d8e6ef;
+}
+.hero-paper-recipient {
+    margin-top: 19px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    line-height: 1.6;
+}
+.hero-paper-recipient > span {
+    color: #7890a1;
+    font-size: 8px;
+}
+.hero-paper-recipient > strong {
+    font-size: 10px;
+    font-weight: 400;
+}
+.hero-rsvp-note {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 25px 18px 17px;
+    color: var(--showcase-ink);
+    background: white;
+    border: 1px solid #d8e7f1;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px #1636500e;
+}
+.hero-rsvp-check {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #eaf3ff;
+    color: var(--showcase-blue);
+}
+.hero-rsvp-check > svg {
+    width: 21px;
+    height: 21px;
+}
+.hero-rsvp-note > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    line-height: 1.5;
+}
+.hero-rsvp-label {
+    font-size: 7px;
+    letter-spacing: 1.4px;
+    color: #6b879c;
+}
+.hero-rsvp-note strong {
+    font-size: 12px;
+    font-weight: 400;
+}
+.hero-showcase-caption {
+    position: absolute;
+    inset: auto 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    color: #638198;
+}
+.hero-showcase-caption > span:first-child {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-style: italic;
+}
+.hero-showcase-caption > span:last-child {
+    font-size: 8px;
+    letter-spacing: 1.8px;
+    white-space: nowrap;
+}
+@media (max-width: 1200px) and (min-width: 701px) {
+    .hero-showcase {
+        height: 530px;
+    }
+    .hero-paper-invitation {
+        top: 98px;
+        padding-inline: 18px;
+    }
+    .hero-paper-top > span:last-child {
+        display: none;
+    }
+    .hero-paper-top {
+        justify-content: center;
+    }
+    .hero-photo-footer {
+        inset-inline-end: 18px;
+    }
+    .hero-showcase-caption > span:first-child {
+        font-size: 16px;
+    }
+    .hero-showcase-caption > span:last-child {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+}
+@media (max-width: 950px) and (min-width: 701px) {
+    .hero-showcase {
+        height: 480px;
+    }
+    .hero-photo-invitation {
+        inset: 25px 8px 95px auto;
+        width: 79%;
+    }
+    .hero-paper-invitation {
+        top: 78px;
+        width: 49%;
+        padding: 18px 14px;
+    }
+    .hero-paper-eyebrow {
+        margin-top: 18px;
+        font-size: 5px;
+        letter-spacing: 1.1px;
+    }
+    .hero-paper-names {
+        font-size: 33px;
+    }
+    .hero-paper-date {
+        margin-top: 16px;
+        gap: 8px;
+    }
+    .hero-paper-date > strong {
+        padding-inline: 9px;
+    }
+    .hero-rsvp-note {
+        padding: 14px;
+        gap: 10px;
+    }
+    .hero-showcase-caption {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+@media (max-width: 700px) {
+    .hero-showcase {
+        height: 520px;
+        width: min(100%, 470px);
+        align-self: center;
+        margin-top: 2px;
+    }
+    .hero-photo-invitation {
+        inset: 16px 14px 97px auto;
+        width: 73%;
+    }
+    .hero-paper-invitation {
+        top: 94px;
+        width: 45%;
+        padding: 20px 17px 23px;
+    }
+    .hero-paper-top {
+        justify-content: center;
+    }
+    .hero-paper-top > span:last-child {
+        display: none;
+    }
+    .hero-paper-eyebrow {
+        font-size: 5px;
+        letter-spacing: 1.3px;
+        margin-top: 22px;
+    }
+    .hero-paper-names {
+        font-size: 40px;
+    }
+    .hero-paper-date {
+        gap: 9px;
+        margin-top: 21px;
+    }
+    .hero-paper-date > strong {
+        padding-inline: 9px;
+    }
+    .hero-photo-footer {
+        inset-inline-end: 18px;
+    }
+    .hero-rsvp-note {
+        bottom: 49px;
+        padding: 15px 19px 15px 14px;
+        gap: 11px;
+    }
+    .hero-showcase-caption {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+@media (max-width: 460px) {
+    .hero-showcase {
+        height: 460px;
+    }
+    .hero-photo-invitation {
+        border-width: 6px;
+        inset-inline-end: 8px;
+        width: 77%;
+    }
+    .hero-paper-invitation {
+        top: 74px;
+        width: 46%;
+        padding: 18px 12px;
+    }
+    .hero-paper-names {
+        font-size: 33px;
+        margin-top: 14px;
+    }
+    .hero-paper-top .momento-logo {
+        width: 70px;
+    }
+    .hero-paper-eyebrow {
+        letter-spacing: 0.9px;
+        margin-top: 18px;
+    }
+    .hero-paper-date > span {
+        font-size: 7px;
+    }
+    .hero-paper-date {
+        gap: 6px;
+        margin-top: 16px;
+        padding-block: 10px;
+    }
+    .hero-paper-date > strong {
+        font-size: 26px;
+        padding-inline: 8px;
+    }
+    .hero-photo-heading {
+        inset-block-start: 20px;
+    }
+    .hero-paper-recipient {
+        margin-top: 15px;
+    }
+    .hero-rsvp-note {
+        bottom: 60px;
+        padding: 13px 14px;
+    }
+}

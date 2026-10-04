@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { ASSETS, MOMENTO_TEMPLATES } from './assets.js';
 import { APP_URL, CONTACT_EMAIL, WHATSAPP_NUMBER } from './config.js';
 import LowerSections from './LowerSections.jsx';
-import { Brand, BrandMark } from './Brand.jsx';
+import { Brand } from './Brand.jsx';
+import HeroShowcase from './HeroShowcase.jsx';
 
 const TEXT = {
     id: {
@@ -401,22 +402,16 @@ function Modal({ title, closeLabel, onClose, children }) {
         </dialog>
     );
 }
-function InvitationCard({ image, style = 'blue', compact = false }) {
+function InvitationCard({ image, style = 'blue' }) {
     return (
-        <div
-            className={
-                'invitation-cover cover-' +
-                style +
-                (compact ? ' compact-cover' : '')
-            }
-        >
+        <div className={'invitation-cover cover-' + style}>
             <div className="cover-rule" />
             <span className="cover-eyebrow">THE WEDDING OF</span>
             <div className="cover-portrait">
                 <img
                     src={image}
                     alt="Contoh potret pasangan untuk undangan Momento"
-                    loading={compact ? 'eager' : 'lazy'}
+                    loading="lazy"
                 />
             </div>
             <span className="cover-names">
@@ -693,44 +688,7 @@ export default function App() {
                                 {t.heroNote}
                             </span>
                         </div>
-                        <div
-                            className="hero-art"
-                            aria-label="Dua contoh undangan Momento di dalam amplop biru"
-                        >
-                            <div className="hero-orbit" />
-                            <span className="envelope-note">
-                                A little beginning.
-                                <br />
-                                <em>A lifetime of stories.</em>
-                            </span>
-                            <div className="envelope-back" />
-                            <div className="hero-phone phone-one">
-                                <span className="phone-camera" />
-                                <InvitationCard
-                                    image={ASSETS.heroPortrait}
-                                    compact
-                                />
-                            </div>
-                            <div className="hero-phone phone-two">
-                                <span className="phone-camera" />
-                                <InvitationCard
-                                    image={ASSETS.heroSecondary}
-                                    style="mist"
-                                    compact
-                                />
-                            </div>
-                            <div className="envelope-front">
-                                <span className="envelope-fold-left" />
-                                <span className="envelope-fold-right" />
-                                <span className="envelope-bottom-fold" />
-                            </div>
-                            <div className="momento-seal">
-                                <BrandMark />
-                            </div>
-                            <span className="envelope-tag">
-                                A MOMENT MADE YOURS.
-                            </span>
-                        </div>
+                        <HeroShowcase locale={locale} />
                     </div>
                 </section>
                 <div className="occasion-strip">

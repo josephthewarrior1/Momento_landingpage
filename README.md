@@ -33,7 +33,7 @@ Jika nomor WhatsApp/email bisnis sudah tersedia, isi `VITE_MOMENTO_WHATSAPP` (ko
 
 ## Isi landing
 
-- Hero dengan amplop, segel logo resmi Momento, dan dua undangan yang dibangun di HTML/CSS.
+- Hero editorial dengan foto pasangan, kartu undangan personal, dan contoh konfirmasi RSVP. Preview terhubung ke desain Silver Tides di aplikasi Momento.
 - Preview warna undangan yang dapat diganti.
 - Enam desain pilihan asli: Royal Blue, Silver Tides, Verdant Vow, Sepucuk Janji, Heritage Vows, Sekar Kinasih.
 - Preview buku tamu dengan pencarian data ilustrasi.
@@ -48,7 +48,7 @@ Foto contoh berasal dari aset yang telah dibuat untuk project Momento, lalu diop
 
 ## Struktur
 
-`src/Brand.jsx` menampilkan logo resmi secara konsisten. `src/App.jsx` untuk header, hero, preview undangan, koleksi, buku tamu, dan form brief. `src/LowerSections.jsx` untuk cerita brand, alur, FAQ, dan footer. `src/config.js` untuk tujuan aplikasi/kontak. `src/assets.js` untuk foto dan katalog pilihan.
+`src/Brand.jsx` menampilkan logo resmi secara konsisten. `src/App.jsx` untuk header, preview undangan, koleksi, buku tamu, dan form brief. `src/HeroShowcase.jsx` serta `src/hero-showcase.css` untuk komposisi hero yang responsif. `src/LowerSections.jsx` untuk cerita brand, alur, FAQ, dan footer. `src/config.js` untuk tujuan aplikasi/kontak. `src/assets.js` untuk foto dan katalog pilihan.
 
 ## Validasi
 
