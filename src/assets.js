@@ -20,7 +20,7 @@ ASSETS.heroSecondary = ASSETS.tides;
 ASSETS.storyPortrait = ASSETS.letter;
 
 // Names, IDs, categories and preview routes match the existing Momento catalog
-// in src/features/invitations/themeCatalog.js and AppRoutes.jsx.
+// in src/features/invitations/themeCatalog.js and AppRoutes.jsx; public examples use the standalone /demo/:templateId route.
 export const MOMENTO_TEMPLATES = [
     {
         id: 'royal',
@@ -30,7 +30,7 @@ export const MOMENTO_TEMPLATES = [
             'Biru navy, kaligrafi putih, bingkai ukiran, dan potret studio dalam satu undangan klasik.',
         color: '#052c57',
         cover: ASSETS.royal,
-        previewPath: '/templates/royal',
+        previewPath: '/demo/royal',
     },
     {
         id: 'tides',
@@ -40,7 +40,7 @@ export const MOMENTO_TEMPLATES = [
             'Abu kebiruan, pita gelombang, potret bertumpuk, dan kisah cinta di tepi laut.',
         color: '#787d7e',
         cover: ASSETS.tides,
-        previewPath: '/templates/tides',
+        previewPath: '/demo/tides',
     },
     {
         id: 'verdant',
@@ -50,7 +50,7 @@ export const MOMENTO_TEMPLATES = [
             'Janji di antara pegunungan, lengkung arsitektural, dan bunga di atas kertas ivory.',
         color: '#183d32',
         cover: ASSETS.verdant,
-        previewPath: '/templates/verdant',
+        previewPath: '/demo/verdant',
     },
     {
         id: 'letter',
@@ -60,7 +60,7 @@ export const MOMENTO_TEMPLATES = [
             'Surat pribadi dalam amplop burgundy, segel monogram, dan potret hangat di atas kertas ivory.',
         color: '#5a2136',
         cover: ASSETS.letter,
-        previewPath: '/templates/letter',
+        previewPath: '/demo/letter',
     },
     {
         id: 'heritage',
@@ -70,7 +70,7 @@ export const MOMENTO_TEMPLATES = [
             'Potret sinematik, inisial kaligrafi, bingkai perangko, dan kisah yang bisa dijelajahi.',
         color: '#b9b49f',
         cover: ASSETS.heritage,
-        previewPath: '/templates/heritage',
+        previewPath: '/demo/heritage',
     },
     {
         id: 'javanese',
@@ -80,7 +80,7 @@ export const MOMENTO_TEMPLATES = [
             'Gunungan, motif kawung, dan aksen emas dalam nuansa Jawa.',
         color: '#a77d46',
         cover: ASSETS.javanese,
-        previewPath: '/templates/javanese',
+        previewPath: '/demo/javanese',
     },
 ];
 

@@ -17,7 +17,7 @@ const copy = {
         workflowTitle: ['Dari sebuah ide,', 'jadi hari istimewa.'],
         workflowText:
             'Rangkai dulu ceritanya. Bagikan saat sudah siap. Sambut mereka di hari acara.',
-        demo: 'Coba editor',
+        demo: 'Lihat demo undangan',
         steps: [
             [
                 'Rangkai undanganmu',
@@ -52,7 +52,7 @@ const copy = {
         faqItems: [
             [
                 'Bisa mencoba Momento tanpa akun?',
-                'Bisa. Klik “Coba editor” untuk membuka contoh undangan dan mencoba mengubah isinya. Mode contoh tidak menyimpan atau menerbitkan perubahan; kamu bisa mengunduh draft sebagai file JSON untuk referensi.',
+                'Bisa. Klik “Lihat demo undangan” untuk membuka contoh di tab baru. Nikmati tampilan undangan seperti tamu yang menerimanya, tanpa perlu masuk ke akun.',
             ],
             [
                 'Apa saja yang bisa disesuaikan?',
@@ -72,15 +72,15 @@ const copy = {
             ],
             [
                 'Bagaimana mulai menggunakan dashboard?',
-                'Buka halaman Masuk dan gunakan akun yang sudah disiapkan oleh pengelola Momento. Untuk mengenal editor sebelum masuk, kamu bisa menggunakan mode contoh.',
+                'Buka halaman Masuk untuk menggunakan akunmu, atau pilih Daftar akun jika belum punya. Setelah masuk, pilih paket dan desain untuk mulai menyiapkan undanganmu.',
             ],
         ],
         contact: 'Mulai cerita barumu',
         contactTitle: ['Momen yang berharga,', 'dimulai di sini.'],
         contactText:
-            'Coba merangkai undangan pertamamu, atau siapkan brief acara untuk memperjelas ide yang kamu punya.',
+            'Lihat contoh undangan, atau siapkan brief acara untuk memperjelas ide yang kamu punya.',
         brief: 'Siapkan brief acara',
-        demoNote: 'Jelajahi editor tanpa akun.',
+        demoNote: 'Lihat contoh undangan tanpa akun.',
         footerText: 'Undangan untuk cerita yang ingin kamu rayakan.',
         explore: 'Jelajahi',
         login: 'Masuk ke dashboard',
@@ -101,7 +101,7 @@ const copy = {
         workflowTitle: ['From a little idea,', 'to a special day.'],
         workflowText:
             'Create your story. Share it when you are ready. Welcome everyone on the day.',
-        demo: 'Try the editor',
+        demo: 'View invitation demo',
         steps: [
             [
                 'Make it your invitation',
@@ -136,7 +136,7 @@ const copy = {
         faqItems: [
             [
                 'Can I try Momento without an account?',
-                'Yes. Select “Try the editor” to open a sample invitation and try editing its content. Demo mode cannot save or publish changes; you can download a draft as a JSON file for reference.',
+                'Yes. Select “View invitation demo” to open a sample in a new tab. Explore the invitation just as a guest would, without signing in.',
             ],
             [
                 'What can I personalize?',
@@ -156,15 +156,15 @@ const copy = {
             ],
             [
                 'How do I get started with the dashboard?',
-                'Open the login page and use an account prepared by your Momento administrator. You can explore the demo editor before signing in.',
+                'Open the login page to use your account, or choose Sign up if you need one. After signing in, choose a package and design to start preparing your invitation.',
             ],
         ],
         contact: 'Begin your next story',
         contactTitle: ['A meaningful moment,', 'starts right here.'],
         contactText:
-            'Try composing your first invitation, or prepare an event brief to bring your ideas into focus.',
+            'View a sample invitation, or prepare an event brief to bring your ideas into focus.',
         brief: 'Prepare an event brief',
-        demoNote: 'Explore the editor without an account.',
+        demoNote: 'View a sample invitation without an account.',
         footerText: 'Invitations for the stories you want to celebrate.',
         explore: 'Explore',
         login: 'Open the dashboard',
@@ -264,7 +264,7 @@ export default function LowerSections({
     const [openQuestion, setOpenQuestion] = useState(0);
     const accordionId = useId();
     const dashboardBase = dashboardUrl.replace(/\/+$/, '');
-    const editorUrl = `${dashboardBase}/builder/demo`;
+    const invitationDemoUrl = `${dashboardBase}/demo/tides`;
     return (
         <div className="lower-sections">
             <section
@@ -304,7 +304,12 @@ export default function LowerSections({
                             <em>{t.workflowTitle[1]}</em>
                         </h2>
                         <p>{t.workflowText}</p>
-                        <a className="lower-text-link" href={editorUrl}>
+                        <a
+                            className="lower-text-link"
+                            href={invitationDemoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             {t.demo}
                             <Arrow />
                         </a>
@@ -404,7 +409,9 @@ export default function LowerSections({
                         <div className="lower-contact-actions">
                             <a
                                 className="lower-button lower-button-white"
-                                href={editorUrl}
+                                href={invitationDemoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 {t.demo}
                                 <Arrow />
@@ -465,7 +472,13 @@ export default function LowerSections({
                         </nav>
                         <nav className="lower-footer-nav" aria-label="Momento">
                             <span>Momento</span>
-                            <a href={editorUrl}>{t.demo}</a>
+                            <a
+                                href={invitationDemoUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {t.demo}
+                            </a>
                             <a href={`${dashboardBase}/login`}>{t.login}</a>
                             <a href="#contact">{t.brief}</a>
                         </nav>

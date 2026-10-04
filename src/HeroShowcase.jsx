@@ -36,7 +36,7 @@ export default function HeroShowcase({ locale }) {
         <figure className="hero-showcase">
             <a
                 className="hero-photo-invitation"
-                href={APP_URL + '/templates/tides'}
+                href={APP_URL + '/demo/tides'}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={copy.linkLabel}

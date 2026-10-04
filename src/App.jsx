@@ -27,7 +27,7 @@ const TEXT = {
             </>
         ),
         intro: 'Undangan yang terasa seperti kamu. Dari desain pertama hingga tamu datang, Momento menyatukan cerita, undangan, dan detail hari bahagiamu dalam satu tempat.',
-        try: 'Coba invitation studio',
+        try: 'Lihat demo undangan',
         explore: 'Temukan desainmu',
         heroNote: 'Dibuat personal. Dikenang lama.',
         invitationHeading: (
@@ -184,7 +184,7 @@ const TEXT = {
             </>
         ),
         intro: 'An invitation that feels like you. From the first design to the first guest arriving, Momento brings your story, invitation, and special-day details together in one place.',
-        try: 'Try the invitation studio',
+        try: 'View invitation demo',
         explore: 'Find your design',
         heroNote: 'Made personal. Remembered always.',
         invitationHeading: (
@@ -671,7 +671,7 @@ export default function App() {
                             <div className="hero-buttons">
                                 <a
                                     className="solid-button"
-                                    href={APP_URL + '/builder/demo'}
+                                    href={APP_URL + '/demo/tides'}
                                     target="_blank"
                                     rel="noreferrer"
                                 >

@@ -24,9 +24,9 @@ Salin `.env.example` menjadi `.env.local`, kemudian atur `VITE_MOMENTO_APP_URL` 
 
 Tujuan CTA:
 
-- Invitation studio: `/builder/demo`.
+- Demo undangan: `/demo/tides`, langsung menampilkan undangan di tab baru.
 - Masuk: `/login`.
-- Koleksi: `/templates/:templateId`.
+- Koleksi: `/demo/:templateId`, tampilan contoh undangan di tab baru.
 - Check-in: `/check-in/demo`.
 
 Jika nomor WhatsApp/email bisnis sudah tersedia, isi `VITE_MOMENTO_WHATSAPP` (kode negara + nomor, angka saja) atau `VITE_MOMENTO_CONTACT_EMAIL`. Jika kosong, tombol rencana mengekspor brief `.txt` di perangkat pengunjung; tidak mengirim data ke vendor atau menyimpan data ke server.
@@ -40,7 +40,7 @@ Jika nomor WhatsApp/email bisnis sudah tersedia, isi `VITE_MOMENTO_WHATSAPP` (ko
 - Alur desain → bagikan → sambut tamu, FAQ, form brief, dan footer.
 - ID/EN, menu mobile, dialog keyboard, dan reduced motion.
 
-RSVP, personal guest links, dan check-in yang dijelaskan adalah alur undangan pernikahan yang tersedia di aplikasi Momento. Demo editor tidak menyimpan/publish. Landing tidak menyertakan backend dashboard, akun, database, atau fitur pembayaran.
+RSVP, personal guest links, dan check-in yang dijelaskan adalah alur undangan pernikahan yang tersedia di aplikasi Momento. Demo undangan memakai data contoh dan tidak menyimpan atau menerbitkan perubahan. Landing tidak menyertakan backend dashboard, akun, database, atau fitur pembayaran.
 
 Logo resmi berasal dari file yang diberikan pemilik Momento. Aset PNG transparan disimpan di `public/branding/`; sumber dan proses persiapannya tercatat di `public/branding/BRANDING.md`.
 
