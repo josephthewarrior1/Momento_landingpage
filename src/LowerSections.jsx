@@ -1,5 +1,6 @@
 import { useId, useState } from 'react';
 import './lower-sections.css';
+import { APP_URL } from './config.js';
 import { Brand, BrandMark } from './Brand.jsx';
 
 const copy = {
@@ -83,6 +84,7 @@ const copy = {
         demoNote: 'Lihat contoh undangan tanpa akun.',
         footerText: 'Undangan untuk cerita yang ingin kamu rayakan.',
         explore: 'Jelajahi',
+        pricing: 'Paket & harga',
         login: 'Masuk ke dashboard',
         footerNote: 'Dibuat untuk momenmu.',
         top: 'Kembali ke atas',
@@ -167,6 +169,7 @@ const copy = {
         demoNote: 'View a sample invitation without an account.',
         footerText: 'Invitations for the stories you want to celebrate.',
         explore: 'Explore',
+        pricing: 'Plans & pricing',
         login: 'Open the dashboard',
         footerNote: 'Made for your moments.',
         top: 'Back to top',
@@ -258,7 +261,7 @@ function StepPreview({ index, t }) {
 export default function LowerSections({
     locale = 'id',
     onConsult,
-    dashboardUrl = 'http://127.0.0.1:9875',
+    dashboardUrl = APP_URL,
 }) {
     const t = copy[locale] || copy.id;
     const [openQuestion, setOpenQuestion] = useState(0);
@@ -472,6 +475,7 @@ export default function LowerSections({
                         </nav>
                         <nav className="lower-footer-nav" aria-label="Momento">
                             <span>Momento</span>
+                            <a href={dashboardBase + '/paket'}>{t.pricing}</a>
                             <a
                                 href={invitationDemoUrl}
                                 target="_blank"

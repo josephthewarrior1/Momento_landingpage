@@ -11,6 +11,7 @@ const TEXT = {
             'MOMENTO INVITATION STUDIO · UNTUK SETIAP CERITA YANG BERARTI',
         services: 'Layanan',
         designs: 'Koleksi desain',
+        pricing: 'Paket & harga',
         workflow: 'Cara kerja',
         about: 'Tentang',
         login: 'Masuk',
@@ -169,6 +170,7 @@ const TEXT = {
             'MOMENTO INVITATION STUDIO · FOR EVERY STORY THAT MATTERS',
         services: 'Services',
         designs: 'Design collection',
+        pricing: 'Plans & pricing',
         workflow: 'How it works',
         about: 'About',
         login: 'Sign in',
@@ -601,6 +603,13 @@ export default function App() {
                             onClick={closeMenu}
                         >
                             {t.designs}
+                        </a>
+                        <a
+                            className="nav-item"
+                            href={APP_URL + '/paket'}
+                            onClick={closeMenu}
+                        >
+                            {t.pricing}
                         </a>
                         <a
                             className="nav-item"
