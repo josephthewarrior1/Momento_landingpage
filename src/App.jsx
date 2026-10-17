@@ -441,7 +441,6 @@ export default function App() {
     const [menuOpen, setMenuOpen] = useState(false),
         [productOpen, setProductOpen] = useState(false),
         [modal, setModal] = useState(null),
-        [filter, setFilter] = useState('all'),
         [color, setColor] = useState('blue'),
         [query, setQuery] = useState('');
     const [name, setName] = useState(''),
@@ -599,7 +598,7 @@ export default function App() {
                         </div>
                         <a
                             className="nav-item"
-                            href="#design"
+                            href={APP_URL + '/koleksi'}
                             onClick={closeMenu}
                         >
                             {t.designs}
@@ -687,7 +686,10 @@ export default function App() {
                                     {t.try}
                                     <Icon size={17} />
                                 </a>
-                                <a className="text-button" href="#design">
+                                <a
+                                    className="text-button"
+                                    href={APP_URL + '/koleksi'}
+                                >
                                     {t.explore}
                                     <Icon size={17} />
                                 </a>
@@ -788,16 +790,13 @@ export default function App() {
                         <p className="section-description">{t.designIntro}</p>
                         <div className="section-toolbar">
                             <h3>{t.selected}</h3>
-                            <button
+                            <a
                                 className="text-button"
-                                onClick={() => {
-                                    setFilter('all');
-                                    setModal('designs');
-                                }}
+                                href={APP_URL + '/koleksi'}
                             >
                                 {t.collection}
                                 <Icon size={16} />
-                            </button>
+                            </a>
                         </div>
                         <div className="design-grid">
                             {MOMENTO_TEMPLATES.slice(0, 3).map(renderTemplate)}
@@ -966,145 +965,114 @@ export default function App() {
             </main>
             {modal && (
                 <Modal
-                    title={modal === 'brief' ? t.briefTitle : t.collection}
+                    title={t.briefTitle}
                     closeLabel={t.close}
                     onClose={() => setModal(null)}
                 >
-                    {modal === 'designs' ? (
-                        <>
-                            <div className="filter-tabs">
-                                {[
-                                    'all',
-                                    'Editorial',
-                                    'Floral',
-                                    'Klasik',
-                                    'Adat',
-                                ].map((category) => (
-                                    <button
-                                        key={category}
-                                        aria-pressed={filter === category}
-                                        onClick={() => setFilter(category)}
-                                    >
-                                        {category === 'all' ? t.all : category}
-                                    </button>
-                                ))}
-                            </div>
-                            <div className="modal-design-grid">
-                                {MOMENTO_TEMPLATES.filter(
-                                    (item) =>
-                                        filter === 'all' ||
-                                        item.category === filter,
-                                ).map(renderTemplate)}
-                            </div>
-                        </>
-                    ) : (
-                        <form className="brief-form" onSubmit={downloadBrief}>
-                            <p>{t.briefIntro}</p>
+                    <form className="brief-form" onSubmit={downloadBrief}>
+                        <p>{t.briefIntro}</p>
+                        <label>
+                            {t.name}
+                            <input
+                                required
+                                autoComplete="name"
+                                value={name}
+                                onChange={(event) =>
+                                    setName(event.target.value)
+                                }
+                                placeholder={t.namePlaceholder}
+                            />
+                        </label>
+                        <div className="form-row">
                             <label>
-                                {t.name}
+                                {t.date}
                                 <input
-                                    required
-                                    autoComplete="name"
-                                    value={name}
+                                    type="date"
+                                    value={date}
                                     onChange={(event) =>
-                                        setName(event.target.value)
+                                        setDate(event.target.value)
                                     }
-                                    placeholder={t.namePlaceholder}
+                                    onInput={(event) =>
+                                        setDate(event.target.value)
+                                    }
                                 />
                             </label>
-                            <div className="form-row">
-                                <label>
-                                    {t.date}
-                                    <input
-                                        type="date"
-                                        value={date}
-                                        onChange={(event) =>
-                                            setDate(event.target.value)
-                                        }
-                                        onInput={(event) =>
-                                            setDate(event.target.value)
-                                        }
-                                    />
-                                </label>
-                                <label>
-                                    {t.type}
-                                    <select
-                                        aria-label={t.type}
-                                        value={eventType}
-                                        onChange={(event) =>
-                                            setEventType(event.target.value)
-                                        }
-                                    >
-                                        {[
-                                            'wedding',
-                                            'birthday',
-                                            'celebration',
-                                        ].map((type) => (
+                            <label>
+                                {t.type}
+                                <select
+                                    aria-label={t.type}
+                                    value={eventType}
+                                    onChange={(event) =>
+                                        setEventType(event.target.value)
+                                    }
+                                >
+                                    {['wedding', 'birthday', 'celebration'].map(
+                                        (type) => (
                                             <option key={type} value={type}>
                                                 {t[type]}
                                             </option>
-                                        ))}
-                                    </select>
-                                </label>
-                            </div>
-                            <label>
-                                {t.notes}
-                                <textarea
-                                    value={notes}
-                                    onChange={(event) =>
-                                        setNotes(event.target.value)
-                                    }
-                                    rows={3}
-                                    placeholder={t.notesPlaceholder}
-                                />
+                                        ),
+                                    )}
+                                </select>
                             </label>
-                            <button className="solid-button" type="submit">
-                                <Icon name="download" size={18} />
-                                {t.save}
-                            </button>
-                            {saved && (
-                                <p className="saved-note" role="status">
-                                    <Icon name="check" size={17} />
-                                    {t.saved}
-                                </p>
-                            )}
-                            {WHATSAPP_NUMBER && (
-                                <a
-                                    className="contact-destination"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    href={
-                                        'https://wa.me/' +
-                                        WHATSAPP_NUMBER +
-                                        '?text=' +
-                                        encodeURIComponent(brief)
-                                    }
-                                >
-                                    {t.whatsapp}
-                                    <Icon size={16} />
-                                </a>
-                            )}
-                            {CONTACT_EMAIL && (
-                                <a
-                                    className="contact-destination"
-                                    href={
-                                        'mailto:' +
-                                        CONTACT_EMAIL +
-                                        '?subject=' +
-                                        encodeURIComponent(
-                                            'Momento — Invitation plan',
-                                        ) +
-                                        '&body=' +
-                                        encodeURIComponent(brief)
-                                    }
-                                >
-                                    {t.email}
-                                    <Icon size={16} />
-                                </a>
-                            )}
-                            <small>{t.briefNote}</small>
-                        </form>
-                    )}
+                        </div>
+                        <label>
+                            {t.notes}
+                            <textarea
+                                value={notes}
+                                onChange={(event) =>
+                                    setNotes(event.target.value)
+                                }
+                                rows={3}
+                                placeholder={t.notesPlaceholder}
+                            />
+                        </label>
+                        <button className="solid-button" type="submit">
+                            <Icon name="download" size={18} />
+                            {t.save}
+                        </button>
+                        {saved && (
+                            <p className="saved-note" role="status">
+                                <Icon name="check" size={17} />
+                                {t.saved}
+                            </p>
+                        )}
+                        {WHATSAPP_NUMBER && (
+                            <a
+                                className="contact-destination"
+                                target="_blank"
+                                rel="noreferrer"
+                                href={
+                                    'https://wa.me/' +
+                                    WHATSAPP_NUMBER +
+                                    '?text=' +
+                                    encodeURIComponent(brief)
+                                }
+                            >
+                                {t.whatsapp}
+                                <Icon size={16} />
+                            </a>
+                        )}
+                        {CONTACT_EMAIL && (
+                            <a
+                                className="contact-destination"
+                                href={
+                                    'mailto:' +
+                                    CONTACT_EMAIL +
+                                    '?subject=' +
+                                    encodeURIComponent(
+                                        'Momento — Invitation plan',
+                                    ) +
+                                    '&body=' +
+                                    encodeURIComponent(brief)
+                                }
+                            >
+                                {t.email}
+                                <Icon size={16} />
+                            </a>
+                        )}
+                        <small>{t.briefNote}</small>
+                    </form>
                 </Modal>
             )}
         </>

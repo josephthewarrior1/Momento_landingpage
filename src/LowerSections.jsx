@@ -85,6 +85,7 @@ const copy = {
         footerText: 'Undangan untuk cerita yang ingin kamu rayakan.',
         explore: 'Jelajahi',
         pricing: 'Paket & harga',
+        collection: 'Koleksi desain',
         login: 'Masuk ke dashboard',
         footerNote: 'Dibuat untuk momenmu.',
         top: 'Kembali ke atas',
@@ -170,6 +171,7 @@ const copy = {
         footerText: 'Invitations for the stories you want to celebrate.',
         explore: 'Explore',
         pricing: 'Plans & pricing',
+        collection: 'Design collection',
         login: 'Open the dashboard',
         footerNote: 'Made for your moments.',
         top: 'Back to top',
@@ -475,6 +477,9 @@ export default function LowerSections({
                         </nav>
                         <nav className="lower-footer-nav" aria-label="Momento">
                             <span>Momento</span>
+                            <a href={dashboardBase + '/koleksi'}>
+                                {t.collection}
+                            </a>
                             <a href={dashboardBase + '/paket'}>{t.pricing}</a>
                             <a
                                 href={invitationDemoUrl}
