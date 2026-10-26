@@ -1,6 +1,6 @@
 # Momento — Invitation Studio
 
-Landing page Momento dengan palet biru langit, Instrument Serif untuk headline, dan Inclusive Sans untuk body. Dibuat dengan React 19.3.0 + Vite 8.3.2 dan terpisah dari repository aplikasi dashboard.
+Landing page Momento dengan palet navy–cobalt, navbar melayang, mockup undangan, fitur interaktif, dan koleksi desain asli. React 19 + Vite; aplikasi dashboard tetap berada di repository DashboardWedding yang terpisah.
 
 ## Development
 
@@ -11,45 +11,38 @@ npm install
 npm run dev
 ```
 
-Buka http://127.0.0.1:5174. Production:
-
-```sh
-npm run build
-npm run preview
-```
+Buka http://127.0.0.1:5174. Untuk build produksi: `npm run build`; pratinjau build: `npm run preview`.
 
 ## Sambungkan aplikasi Momento
 
-Salin `.env.example` menjadi `.env.local`, kemudian atur `VITE_MOMENTO_APP_URL` ke origin aplikasi Momento. Default development adalah `http://127.0.0.1:9875`; aplikasi dashboard dijalankan dari repository DashboardWedding. Sebelum deploy landing online, ganti nilai ini ke domain aplikasi online lalu build ulang.
+Atur `VITE_MOMENTO_APP_URL` di `.env.local` ke origin aplikasi. Default development adalah `http://127.0.0.1:9875`. Jalankan dashboard untuk membuka tujuan koleksi, demo, paket, dan login lokal. Sebelum deploy online, gunakan origin aplikasi produksi dan build ulang.
 
-Tujuan CTA:
-
-- Demo undangan: `/demo/tides`, langsung menampilkan undangan di tab baru.
+- Buat undangan dan harga terbaru: `/paket`.
+- Koleksi lengkap: `/koleksi`.
+- Contoh undangan: `/demo/:templateId`.
+- Pemilihan desain: `/paket?template=:templateId`.
 - Masuk: `/login`.
-- Koleksi: `/demo/:templateId`, tampilan contoh undangan di tab baru.
-- Check-in: `/check-in/demo`.
+- Demo buku tamu: `/check-in/demo`.
 
-Jika nomor WhatsApp/email bisnis sudah tersedia, isi `VITE_MOMENTO_WHATSAPP` (kode negara + nomor, angka saja) atau `VITE_MOMENTO_CONTACT_EMAIL`. Jika kosong, tombol rencana mengekspor brief `.txt` di perangkat pengunjung; tidak mengirim data ke vendor atau menyimpan data ke server.
+Nomor WhatsApp/email bisnis opsional tetap memakai `VITE_MOMENTO_WHATSAPP` dan `VITE_MOMENTO_CONTACT_EMAIL`. Form rencana selalu bisa diunduh sebagai `.txt`. Tombol kontak muncul jika konfigurasi tersedia dan membuka aplikasi terkait; data tidak dikirim otomatis.
 
-## Isi landing
+## Halaman baru
 
-- Hero editorial dengan foto pasangan, kartu undangan personal, dan contoh konfirmasi RSVP. Preview terhubung ke desain Silver Tides di aplikasi Momento.
-- Preview warna undangan yang dapat diganti.
-- Enam desain pilihan asli: Royal Blue, Silver Tides, Verdant Vow, Sepucuk Janji, Heritage Vows, Sekar Kinasih.
-- Preview buku tamu dengan pencarian data ilustrasi.
-- Alur desain → bagikan → sambut tamu, FAQ, form brief, dan footer.
-- ID/EN, menu mobile, dialog keyboard, dan reduced motion.
+- Hero biru dengan mockup undangan, kartu RSVP ilustratif, dan CTA menuju aplikasi.
+- Pengenalan studio dan lima fitur dengan preview warna yang bisa diganti.
+- Tiga langkah membuat dan membagikan undangan.
+- Enam desain pilihan: Royal Blue, Atelier, Sekar Arum, Paradise, Alma, Silver Tides. Filter mengikuti kategori katalog aplikasi; Semua menampilkan seluruh pilihan.
+- Contoh buku tamu dengan pencarian nama, keadaan kosong, dan tautan demo check-in.
+- FAQ, form rencana, footer, ID/EN, menu mobile, keyboard focus, dan reduced motion.
 
-RSVP, personal guest links, dan check-in yang dijelaskan adalah alur undangan pernikahan yang tersedia di aplikasi Momento. Demo undangan memakai data contoh dan tidak menyimpan atau menerbitkan perubahan. Landing tidak menyertakan backend dashboard, akun, database, atau fitur pembayaran.
-
-Logo resmi berasal dari file yang diberikan pemilik Momento. Aset PNG transparan disimpan di `public/branding/`; sumber dan proses persiapannya tercatat di `public/branding/BRANDING.md`.
-
-Foto contoh berasal dari aset yang telah dibuat untuk project Momento, lalu dioptimalkan menjadi WebP. Total enam foto sekitar 723 KB. Provenance ada di `public/assets/SOURCES.md`; font beserta lisensi OFL disimpan lokal.
+Harga mengikuti halaman aplikasi, bukan angka statis di landing. QR, petugas, dan rekap kehadiran dijelaskan sebagai fitur paket Undangan + Buku Tamu. Nama, RSVP, ucapan, dan jumlah tamu dalam mockup merupakan data ilustrasi, bukan statistik penggunaan atau testimoni pelanggan.
 
 ## Struktur
 
-`src/Brand.jsx` menampilkan logo resmi secara konsisten. `src/App.jsx` untuk header, preview undangan, koleksi, buku tamu, dan form brief. `src/HeroShowcase.jsx` serta `src/hero-showcase.css` untuk komposisi hero yang responsif. `src/LowerSections.jsx` untuk cerita brand, alur, FAQ, dan footer. `src/config.js` untuk tujuan aplikasi/kontak. `src/assets.js` untuk foto dan katalog pilihan.
+`src/main.jsx` membuka `BlueLandingPage.jsx`. Komponen utama dan CSS berada di `BlueLandingPage.jsx` dan `blue-landing.css`; alur, FAQ, CTA penutup, dan footer berada di `BlueLandingSections.jsx` dan `blue-landing-sections.css`. `config.js`, `Brand.jsx`, logo, dan font memakai sumber yang sudah ada. Implementasi editorial sebelumnya tetap tersimpan di `App.jsx`, `HeroShowcase.jsx`, dan `LowerSections.jsx`.
 
-## Validasi
+`public/assets/landing/` berisi enam screenshot sampul template asli dari aplikasi dan empat foto contoh Atelier. Kredit foto terdapat di `ATELIER_ASSETS.md`. Logo resmi dan font lokal beserta lisensinya tetap berada di `public/branding/` dan `public/assets/`.
 
-Build produksi, pemeriksaan browser desktop/mobile, filter koleksi, preview warna, pencarian contoh tamu, FAQ, ID/EN, serta ekspor brief. Screenshot development disimpan di `previews/` dan tidak dimasukkan Git.
+## Verifikasi
+
+Jalankan build, lalu cek desktop dan HP: navbar, kategori desain, preview warna, pencarian tamu, FAQ, pilihan bahasa, validasi form, unduhan brief, Escape dan pengembalian fokus, serta tujuan tautan aplikasi. Screenshot review boleh disimpan di `previews/` yang tidak dilacak Git. Tidak ada perubahan backend atau pembayaran di landing ini.
