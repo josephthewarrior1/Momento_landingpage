@@ -3,6 +3,7 @@ import { APP_URL, CONTACT_EMAIL, WHATSAPP_NUMBER } from './config.js';
 import { Brand } from './Brand.jsx';
 import { Workflow, Faq, Closing } from './BlueLandingSections.jsx';
 import PhoneMockup from './PhoneMockup.jsx';
+import { SEO } from './seo.js';
 import './blue-landing.css';
 
 const asset = name => `/assets/landing/${name}`;
@@ -115,7 +116,11 @@ export default function BlueLandingPage() {
   const dialogRef = useRef(null);
   const dialogTrigger = useRef(null);
   const t = COPY[locale];
-  useEffect(() => { document.documentElement.lang = locale; document.title = locale === 'id' ? 'Momento — Cerita kalian. Undangan yang berkesan.' : 'Momento — Your story. An invitation to remember.'; }, [locale]);
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    document.title = SEO[locale].title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', SEO[locale].description);
+  }, [locale]);
   function openBrief(e) { dialogTrigger.current = e.currentTarget; dialogRef.current?.showModal(); }
   return <div className="bl-page"><a className="bl-skip" href="#introduction">{t.skip}</a><main><Hero t={t} locale={locale} setLocale={setLocale} /><Introduction t={t} locale={locale} /><Features t={t} /><Workflow locale={locale} /><Collection t={t} /><Guestbook t={t} /><Faq locale={locale} /><Closing locale={locale} onBrief={openBrief} /></main><BriefDialog dialogRef={dialogRef} t={t} onClose={() => dialogTrigger.current?.focus()} /></div>;
 }

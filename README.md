@@ -43,6 +43,16 @@ Harga mengikuti halaman aplikasi, bukan angka statis di landing. QR, petugas, da
 
 `public/assets/landing/` berisi enam screenshot sampul template asli dari aplikasi dan empat foto contoh Atelier. Kredit foto terdapat di `ATELIER_ASSETS.md`. Logo resmi dan font lokal beserta lisensinya tetap berada di `public/branding/` dan `public/assets/`.
 
-## Verifikasi
+## SEO produksi
+
+`npm run build` merender komponen halaman depan menjadi HTML lengkap di `dist/index.html`, kemudian browser menghidrasinya untuk menjalankan interaksi. Judul dan deskripsi ID/EN berada di `src/seo.js`. Build menambahkan canonical `https://momento.id/`, Open Graph, Twitter metadata, serta JSON-LD Organization, WebSite, dan WebPage. Tidak ada klaim rating, harga, atau statistik pelanggan dalam structured data.
+
+`public/robots.txt` dan `public/sitemap.xml` ikut disalin ke `dist/`. Sitemap hanya memuat halaman marketing utama; URL undangan dan data tamu tidak ditambahkan. Sebelum build produksi, set `VITE_MOMENTO_APP_URL=https://momento.id` untuk deployment dengan origin bersama.
+
+Deployment Hostinger menggabungkan build landing dengan DashboardWedding. Gunakan versi DashboardWedding yang mendukung ekstensi `.xml` di `scripts/package-hostinger-release.mjs`. Pada VPS yang sudah dikonfigurasi, jalankan `bash /opt/momento/source/DashboardWedding/deploy/hostinger/deploy-from-git.sh` untuk menarik kedua branch `main`, membangun, dan memperbarui deployment yang ada.
+
+Sesudah deploy, pastikan `/robots.txt` bertipe teks, `/sitemap.xml` merupakan XML valid, dan sumber HTML homepage sudah berisi konten, canonical, serta JSON-LD. Di Google Search Console, login ke akun pemilik yang dipilih, verifikasi properti `https://momento.id/`, kirim `https://momento.id/sitemap.xml`, lalu lakukan URL Inspection untuk homepage dan Request Indexing. Tag verifikasi hanya boleh dipasang setelah akun pemilik dipastikan; tidak ada token akun bawaan di repo.
+
+## Verifikasi tampilan
 
 Jalankan build, lalu cek desktop dan HP: navbar, kategori desain, preview warna, pencarian tamu, FAQ, pilihan bahasa, validasi form, unduhan brief, Escape dan pengembalian fokus, serta tujuan tautan aplikasi. Screenshot review boleh disimpan di `previews/` yang tidak dilacak Git. Tidak ada perubahan backend atau pembayaran di landing ini.
