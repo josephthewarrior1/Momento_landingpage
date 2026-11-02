@@ -8,16 +8,16 @@ const COPY = {
         workflowTitle: <>Dari cerita kalian,<br />jadi undangan.</>,
         workflowDescription: 'Tiga langkah kecil untuk menyambut hari yang besar.',
         steps: [
-            ['Pilih yang terasa kalian.', 'Temukan desain favorit, lihat contohnya, lalu pilih paket sesuai kebutuhan acara.'],
-            ['Isi dengan cerita sendiri.', 'Tambahkan foto, kisah, musik, dan detail acara. Periksa tampilannya sebelum diterbitkan.'],
-            ['Bagikan. Sambut. Rayakan.', 'Kirim link personal kepada tamu dan pantau RSVP. Buku tamu membantu saat hari perayaan tiba.'],
+            ['Pilih desain & paket.', 'Coba demo, temukan desain favorit, lalu pilih paket sesuai kebutuhan acara.'],
+            ['Bayar. Buka email kalian.', 'Isi email aktif dan selesaikan pembayaran. Setelah terkonfirmasi, tautan pribadi untuk mengedit undangan dikirim ke email kalian.'],
+            ['Isi. Terbitkan. Bagikan.', 'Tambahkan foto, cerita, musik, dan detail acara. Periksa preview, lalu terbitkan dan bagikan saat kalian sudah siap.'],
         ],
         faqEyebrow: 'SEBELUM MULAI',
         faqTitle: <>Masih ada{' '}<br /><em>pertanyaan?</em></>,
         faqDescription: 'Beberapa hal yang mungkin sedang kalian pikirkan.',
         faqLink: 'Lihat pilihan paket',
         questions: [
-            ['Bagaimana cara membuat undangan?', 'Pilih desain di koleksi, tentukan paket, lalu daftar atau masuk ke akun Momento. Setelah paket aktif, isi detail acara, foto, dan cerita kalian di editor. Periksa preview, terbitkan, lalu bagikan.'],
+            ['Bagaimana cara membuat undangan?', 'Pilih desain dan paket, isi email aktif, lalu selesaikan pembayaran. Setelah pembayaran terverifikasi, buka tautan akses yang dikirim lewat email. Isi foto, cerita, dan detail acara, periksa preview, lalu terbitkan saat kalian siap. Tidak perlu membuat username atau password.'],
             ['Bisa pakai foto dan musik sendiri?', 'Bisa. Kalian dapat mengubah isi, mengunggah foto, mengatur galeri, dan memilih musik sesuai cerita kalian. Musik mulai diputar setelah tamu membuka undangan.'],
             ['Apa bedanya undangan dan buku tamu?', 'Paket Undangan Digital mencakup desain, link personal, RSVP, dan ucapan. Paket Undangan + Buku Tamu menambahkan QR, check-in manual, akses petugas, dan laporan kehadiran.'],
             ['Berapa harga paketnya?', 'Harga dan ketersediaan terbaru ada di halaman Paket & harga. Pilih paket sesuai kebutuhan; detailnya dapat diperiksa sebelum melanjutkan pembelian.'],
@@ -33,7 +33,7 @@ const COPY = {
         footerNav: 'Jelajahi',
         footerDesigns: 'Koleksi desain',
         footerPricing: 'Paket & harga',
-        footerLogin: 'Masuk ke akun',
+        footerAccess: 'Akses undangan',
         footerGuide: 'Kenali Momento',
         footerWorkflow: 'Cara kerja',
         footerFaq: 'Pertanyaan umum',
@@ -46,16 +46,16 @@ const COPY = {
         workflowTitle: <>From your story,<br />to your invitation.</>,
         workflowDescription: 'Three little steps toward your biggest day.',
         steps: [
-            ['Find a design that feels like you.', 'Explore the designs, try a full preview, and choose a plan that fits your celebration.'],
-            ['Make it your own story.', 'Add your photos, story, music, and event details. Preview everything before you publish.'],
-            ['Share. Welcome. Celebrate.', 'Send personal links to your guests and follow their RSVPs. Add the guestbook for your celebration day.'],
+            ['Choose a design & plan.', 'Explore the designs, try a full preview, and choose a plan that fits your celebration.'],
+            ['Pay. Check your email.', 'Enter an email you can access and complete payment. Once it is confirmed, your private editing link is sent to your email.'],
+            ['Create. Publish. Share.', 'Add your photos, story, music, and event details. Preview everything, then publish and share when you are ready.'],
         ],
         faqEyebrow: 'BEFORE YOU BEGIN',
         faqTitle: <>A few{' '}<br /><em>questions?</em></>,
         faqDescription: 'The things you might be wondering about.',
         faqLink: 'Explore the plans',
         questions: [
-            ['How do we create an invitation?', 'Choose a design and plan, then create or sign in to your Momento account. Once your plan is active, add your event details, photos, and story in the editor. Preview, publish, and share.'],
+            ['How do we create an invitation?', 'Choose a design and plan, enter an email you can access, and complete payment. Once payment is verified, open the access link sent by email. Add your photos, story, and event details, then preview and publish when ready. No username or password is needed.'],
             ['Can we use our own photos and music?', 'Yes. You can edit the content, upload photos, arrange your gallery, and choose music for your story. Music begins after a guest opens the invitation.'],
             ['What does the guestbook add?', 'The Digital Invitation plan includes designs, personal links, RSVPs, and wishes. Invitation + Guestbook adds QR and manual check-in, staff access, and attendance reports.'],
             ['How much do the plans cost?', 'Visit Plans & pricing for current prices and availability. Choose the plan that fits your celebration and review its details before continuing with your purchase.'],
@@ -71,7 +71,7 @@ const COPY = {
         footerNav: 'Explore',
         footerDesigns: 'Design collection',
         footerPricing: 'Plans & pricing',
-        footerLogin: 'Sign in',
+        footerAccess: 'Invitation access',
         footerGuide: 'Meet Momento',
         footerWorkflow: 'How it works',
         footerFaq: 'Common questions',
@@ -188,7 +188,7 @@ export function Closing({ locale = 'id', onBrief }) {
                             <h3>{text.footerNav}</h3>
                             <a href={`${APP_URL}/koleksi`}>{text.footerDesigns}</a>
                             <a href={`${APP_URL}/paket`}>{text.footerPricing}</a>
-                            <a href={`${APP_URL}/login`}>{text.footerLogin}</a>
+                            <a href={`${APP_URL}/akses`}>{text.footerAccess}</a>
                         </nav>
                         <nav className="bl-footer-links" aria-label={text.footerGuide}>
                             <h3>{text.footerGuide}</h3>
