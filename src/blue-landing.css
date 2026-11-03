@@ -31,22 +31,28 @@
 .bl-nav,.bl-nav-login,.bl-demo-link{font-weight:500}
 .bl-eyebrow{font-weight:600}
 
-/* Full-width invitation covers keep every design readable in the collection. */
+/* Equal cover and caption areas keep every collection row aligned. */
 .bl-designs { align-items: stretch; }
-.bl-template { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #dfe6f2; border-radius: 18px; background: #fff; }
-.bl-template .bl-template-cover { height: auto; padding: 0; aspect-ratio: auto; border: 0; border-radius: 0; background: #edf3fd; }
-.bl-template .bl-template-cover > img { display: block; width: 100%; height: auto; min-height: 0; object-fit: contain; border-radius: 0; box-shadow: none; transform: none; }
+.bl-template { display: flex; flex-direction: column; container-type: inline-size; overflow: hidden; border: 1px solid #dfe6f2; border-radius: 18px; background: #fff; }
+.bl-template .bl-template-cover { flex: none; width: 100%; height: auto; padding: 0; aspect-ratio: 390 / 843; border: 0; border-radius: 0; background: #edf3fd; }
+.bl-template .bl-template-cover > img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: cover; object-position: center; border-radius: 0; box-shadow: none; transform: none; }
 .bl-template .bl-template-cover:hover > img { transform: none; }
 .bl-template .bl-template-cover > .bl-template-category { top: 12px; left: 12px; right: auto; bottom: auto; transform: none; padding: 7px 11px; border: 1px solid #ffffff90; border-radius: 99px; background: #fffffff0; color: var(--ink); box-shadow: none; font-size: 10px; font-weight: 600; line-height: 1.4; letter-spacing: .04em; }
-.bl-template .bl-template-info { display: grid; flex: 1; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 14px 8px; padding: 17px; }
-.bl-template-info > div { min-width: 0; }
-.bl-template-info h3 { overflow-wrap: anywhere; }
-.bl-template-info > a.bl-template-preview { grid-column: 1 / -1; align-self: end; display: flex; justify-content: center; gap: 12px; width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid #a9beff; border-radius: 99px; font-size: 13px; font-weight: 600; text-decoration: none; }
+.bl-template .bl-template-info { display: flex; flex: none; flex-direction: column; align-items: stretch; gap: 14px; padding: 17px; }
+.bl-template-info > .bl-template-title { display: flex; flex-direction: column; justify-content: center; flex: none; min-width: 0; height: 64px; }
+.bl-template-title h3 { margin: 4px 0 0; line-height: 1.35; overflow-wrap: anywhere; }
+.bl-template-info > .bl-template-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.bl-template-actions > a { display: flex; justify-content: center; align-items: center; min-width: 0; min-height: 44px; padding: 10px 8px; border: 1px solid #a9beff; border-radius: 99px; color: var(--blue); background: #fff; font-size: 12px; font-weight: 600; line-height: 1.4; text-align: center; text-decoration: none; }
+.bl-template-actions > .bl-template-choose { background: var(--blue); border-color: var(--blue); color: #fff; }
+.bl-template-actions > a:hover { filter: brightness(.96); }
 .bl-template a:focus-visible { outline: 3px solid #81a4ff; outline-offset: -4px; }
+@container(max-width:240px) {
+  .bl-template .bl-template-info { padding: 12px; gap: 12px; }
+  .bl-template-title h3 { font-size: 16px; }
+  .bl-template-info > .bl-template-actions { grid-template-columns: 1fr; }
+  .bl-template-actions > a { font-size: 11px; padding: 8px; }
+  .bl-template .bl-template-cover > .bl-template-category { top: 9px; left: 9px; font-size: 9px; padding: 6px 9px; }
+}
 @media(max-width:430px) {
   .bl-template { border-radius: 14px; }
-  .bl-template .bl-template-info { padding: 12px; gap: 12px 6px; }
-  .bl-template-info h3 { font-size: 16px; }
-  .bl-template .bl-template-cover > .bl-template-category { top: 9px; left: 9px; font-size: 9px; padding: 6px 9px; }
-  .bl-template-info > a.bl-template-preview { gap: 8px; font-size: 11px; padding: 8px; }
 }
