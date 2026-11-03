@@ -31,10 +31,22 @@
 .bl-nav,.bl-nav-login,.bl-demo-link{font-weight:500}
 .bl-eyebrow{font-weight:600}
 
-/* Shared device shell keeps the collection consistent with the invitation app. */
-.bl-template-cover { height: auto; padding: 0; aspect-ratio: 3/4; }
-.bl-template-cover > .iv-phone-mockup { height: 100%; }
-.bl-template-cover > span { bottom: 16px; }
+/* Full-width invitation covers keep every design readable in the collection. */
+.bl-designs { align-items: stretch; }
+.bl-template { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #dfe6f2; border-radius: 18px; background: #fff; }
+.bl-template .bl-template-cover { height: auto; padding: 0; aspect-ratio: auto; border: 0; border-radius: 0; background: #edf3fd; }
+.bl-template .bl-template-cover > img { display: block; width: 100%; height: auto; min-height: 0; object-fit: contain; border-radius: 0; box-shadow: none; transform: none; }
+.bl-template .bl-template-cover:hover > img { transform: none; }
+.bl-template .bl-template-cover > .bl-template-category { top: 12px; left: 12px; right: auto; bottom: auto; transform: none; padding: 7px 11px; border: 1px solid #ffffff90; border-radius: 99px; background: #fffffff0; color: var(--ink); box-shadow: none; font-size: 10px; font-weight: 600; line-height: 1.4; letter-spacing: .04em; }
+.bl-template .bl-template-info { display: grid; flex: 1; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 14px 8px; padding: 17px; }
+.bl-template-info > div { min-width: 0; }
+.bl-template-info h3 { overflow-wrap: anywhere; }
+.bl-template-info > a.bl-template-preview { grid-column: 1 / -1; align-self: end; display: flex; justify-content: center; gap: 12px; width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid #a9beff; border-radius: 99px; font-size: 13px; font-weight: 600; text-decoration: none; }
+.bl-template a:focus-visible { outline: 3px solid #81a4ff; outline-offset: -4px; }
 @media(max-width:430px) {
-  .bl-template-cover > span { bottom: 10px; padding: 8px 11px; }
+  .bl-template { border-radius: 14px; }
+  .bl-template .bl-template-info { padding: 12px; gap: 12px 6px; }
+  .bl-template-info h3 { font-size: 16px; }
+  .bl-template .bl-template-cover > .bl-template-category { top: 9px; left: 9px; font-size: 9px; padding: 6px 9px; }
+  .bl-template-info > a.bl-template-preview { gap: 8px; font-size: 11px; padding: 8px; }
 }
