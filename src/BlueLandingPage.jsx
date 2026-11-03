@@ -96,9 +96,11 @@ function Collection({ t }) {
             <span className="bl-template-category">{t[design.category]}</span>
           </a>
           <div className="bl-template-info">
-            <div><span>{design.note}</span><h3>{design.name}</h3></div>
-            <a className="bl-template-choose" href={app(`/paket?template=${design.id}`)} aria-label={`${t.choose} ${design.name}`}><Icon name="arrow" size={22} /></a>
-            <a className="bl-template-preview" href={app(`/demo/${design.id}`)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}>{t.preview}<Icon name="arrow" size={17} /></a>
+            <div className="bl-template-title"><span>{design.note}</span><h3>{design.name}</h3></div>
+            <div className="bl-template-actions">
+              <a className="bl-template-preview" href={app(`/demo/${design.id}`)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}>{t.preview}</a>
+              <a className="bl-template-choose" href={app(`/paket?template=${design.id}`)} aria-label={`${t.choose} ${design.name}`}>{t.choose}</a>
+            </div>
           </div>
         </article>)}
       </div>
