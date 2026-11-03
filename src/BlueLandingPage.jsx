@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { APP_URL, CONTACT_EMAIL, WHATSAPP_NUMBER } from './config.js';
 import { Brand } from './Brand.jsx';
 import { Workflow, Faq, Closing } from './BlueLandingSections.jsx';
-import PhoneMockup from './PhoneMockup.jsx';
 import { SEO } from './seo.js';
 import './blue-landing.css';
 
@@ -86,7 +85,26 @@ const DESIGNS = [
 function Collection({ t }) {
   const [category, setCategory] = useState('all');
   const visible = category === 'all' ? DESIGNS : DESIGNS.filter(d => d.category === category);
-  return <section className="bl-section bl-collection" id="designs"><div className="bl-container"><div className="bl-section-heading"><span className="bl-eyebrow">{t.collectionEye}</span><h2 className="bl-heading">{t.collectionTitle[0]}<br />{t.collectionTitle[1]}</h2><p>{t.collectionIntro}</p></div><div className="bl-filters" role="group" aria-label={t.collectionLink}>{['all', 'classic', 'floral', 'editorial', 'traditional'].map(key => <button key={key} aria-pressed={category === key} onClick={() => setCategory(key)}>{t[key]}</button>)}</div><div className="bl-designs" aria-live="polite">{visible.map(design => <article className="bl-template" key={design.id}><a className="bl-template-cover" href={app(`/demo/${design.id}`)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}><PhoneMockup><img src={asset(`${design.id}.png`)} alt={`${design.name} — ${t[design.category]}`} loading="lazy" width="390" height="720" /></PhoneMockup><span>{t.preview}<Icon name="arrow" size={17} /></span></a><div className="bl-template-info"><div><span>{design.note}</span><h3>{design.name}</h3></div><a href={app(`/paket?template=${design.id}`)} aria-label={`${t.choose} ${design.name}`}><Icon name="arrow" size={22} /></a></div></article>)}</div><a className="bl-button bl-button--outline bl-all-designs" href={app('/koleksi')}>{t.collectionLink}<Icon name="arrow" size={18} /></a></div></section>;
+  return <section className="bl-section bl-collection" id="designs">
+    <div className="bl-container">
+      <div className="bl-section-heading"><span className="bl-eyebrow">{t.collectionEye}</span><h2 className="bl-heading">{t.collectionTitle[0]}<br />{t.collectionTitle[1]}</h2><p>{t.collectionIntro}</p></div>
+      <div className="bl-filters" role="group" aria-label={t.collectionLink}>{['all', 'classic', 'floral', 'editorial', 'traditional'].map(key => <button key={key} aria-pressed={category === key} onClick={() => setCategory(key)}>{t[key]}</button>)}</div>
+      <div className="bl-designs" aria-live="polite">
+        {visible.map(design => <article className="bl-template" key={design.id}>
+          <a className="bl-template-cover" href={app(`/demo/${design.id}`)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}>
+            <img src={asset(`${design.id}.png`)} alt={`${design.name} — ${t[design.category]}`} loading="lazy" width="390" height={design.id === 'royal' || design.id === 'tides' ? 843 : 720} />
+            <span className="bl-template-category">{t[design.category]}</span>
+          </a>
+          <div className="bl-template-info">
+            <div><span>{design.note}</span><h3>{design.name}</h3></div>
+            <a className="bl-template-choose" href={app(`/paket?template=${design.id}`)} aria-label={`${t.choose} ${design.name}`}><Icon name="arrow" size={22} /></a>
+            <a className="bl-template-preview" href={app(`/demo/${design.id}`)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}>{t.preview}<Icon name="arrow" size={17} /></a>
+          </div>
+        </article>)}
+      </div>
+      <a className="bl-button bl-button--outline bl-all-designs" href={app('/koleksi')}>{t.collectionLink}<Icon name="arrow" size={18} /></a>
+    </div>
+  </section>;
 }
 
 const GUESTS = [{ name: 'Nadia & keluarga', present: true, initials: 'NA' }, { name: 'Aditya Putra', present: true, initials: 'AP' }, { name: 'Sarah & Daniel', present: false, initials: 'SD' }];
