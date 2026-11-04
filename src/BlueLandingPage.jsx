@@ -79,7 +79,7 @@ function Features({ t }) {
 }
 
 const DESIGNS = [
-  { id: 'royal', name: 'Royal Blue', category: 'classic', note: 'TIMELESS ELEGANCE' }, { id: 'atelier', name: 'Atelier', category: 'floral', note: 'AN INTIMATE STORY' }, { id: 'sekar-arum', name: 'Sekar Arum', category: 'traditional', note: 'A CELEBRATION OF ROOTS' }, { id: 'paradise', name: 'Paradise', category: 'editorial', note: 'COASTAL ROMANCE' }, { id: 'alma', name: 'Alma', category: 'editorial', note: 'CLASSIC PORTRAIT' }, { id: 'tides', name: 'Silver Tides', category: 'editorial', note: 'LOVE BY THE SEA' },
+  { id: 'royal', name: 'Royal Blue', category: 'classic', note: 'TIMELESS ELEGANCE' }, { id: 'atelier', name: 'Atelier', category: 'floral', note: 'AN INTIMATE STORY' }, { id: 'sekar-arum', name: 'Sekar Arum', category: 'traditional', note: 'A CELEBRATION OF ROOTS' }, { id: 'paradise', name: 'Paradise', category: 'editorial', note: 'COASTAL ROMANCE' }, { id: 'alma', name: 'Alma', category: 'editorial', note: 'CLASSIC PORTRAIT' }, { id: 'heritage', name: 'Heritage Vows', category: 'classic', note: 'A PORTRAIT OF FOREVER' },
 ];
 
 function Collection({ t }) {
@@ -92,11 +92,10 @@ function Collection({ t }) {
       <div className="bl-designs" aria-live="polite">
         {visible.map(design => <article className="bl-template" key={design.id}>
           <a className="bl-template-cover" href={app(`/demo/${design.id}`)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}>
-            <img src={asset(`${design.id}.png`)} alt={`${design.name} — ${t[design.category]}`} loading="lazy" width="390" height={design.id === 'royal' || design.id === 'tides' ? 843 : 720} />
-            <span className="bl-template-category">{t[design.category]}</span>
+            <img src={asset(`${design.id}-opening.png`)} alt={`${design.name} — ${t[design.category]}`} loading="lazy" width="390" height="780" />
           </a>
           <div className="bl-template-info">
-            <div className="bl-template-title"><span>{design.note}</span><h3>{design.name}</h3></div>
+            <div className="bl-template-title"><div className="bl-template-metadata"><span className="bl-template-category">{t[design.category]}</span><span className="bl-template-note">{design.note}</span></div><h3>{design.name}</h3></div>
             <div className="bl-template-actions">
               <a className="bl-template-preview" href={app(`/demo/${design.id}`)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}>{t.preview}</a>
               <a className="bl-template-choose" href={app(`/paket?template=${design.id}`)} aria-label={`${t.choose} ${design.name}`}>{t.choose}</a>

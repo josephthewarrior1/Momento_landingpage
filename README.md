@@ -41,7 +41,7 @@ Harga mengikuti halaman aplikasi, bukan angka statis di landing. QR, petugas, da
 
 `src/main.jsx` membuka `BlueLandingPage.jsx`. Komponen utama dan CSS berada di `BlueLandingPage.jsx` dan `blue-landing.css`; alur, FAQ, CTA penutup, dan footer berada di `BlueLandingSections.jsx` dan `blue-landing-sections.css`. `config.js`, `Brand.jsx`, logo, dan font memakai sumber yang sudah ada. Implementasi editorial sebelumnya tetap tersimpan di `App.jsx`, `HeroShowcase.jsx`, dan `LowerSections.jsx`.
 
-`public/assets/landing/` berisi enam screenshot sampul template asli dari aplikasi dan empat foto contoh Atelier. Kredit foto terdapat di `ATELIER_ASSETS.md`. Logo resmi dan font lokal beserta lisensinya tetap berada di `public/branding/` dan `public/assets/`.
+`public/assets/landing/` berisi enam screenshot sampul template asli dari aplikasi dan empat foto contoh Atelier. Kredit foto terdapat di `ATELIER_ASSETS.md`. Pratinjau koleksi memakai tangkapan cover opening utuh berukuran 390 x 780 (`*-opening.png`), termasuk tombol pembuka, dengan label kategori di bawah gambar agar tidak menutupi desain. Logo resmi dan font lokal beserta lisensinya tetap berada di `public/branding/` dan `public/assets/`.
 
 ## SEO produksi
 
