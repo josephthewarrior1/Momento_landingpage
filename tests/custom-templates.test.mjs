@@ -11,6 +11,8 @@ import {
 test('Forever is discoverable as an exclusive commission, outside standard categories', () => {
   assert.equal(FOREVER_EXCLUSIVE.editorEnabled, false);
   assert.equal(FOREVER_EXCLUSIVE.purchaseMode, 'consultation');
+  assert.equal(FOREVER_EXCLUSIVE.previewType, 'interactive');
+  assert.equal(FOREVER_EXCLUSIVE.previewPath, '/preview/forever-exclusive');
   assert.equal(getCustomTemplates('all')[0].id, 'forever-exclusive');
   assert.equal(getCustomTemplates('exclusive')[0].id, 'forever-exclusive');
   for (const category of ['classic', 'floral', 'editorial', 'traditional']) {
@@ -27,7 +29,7 @@ test('custom pricing contact uses the supplied WhatsApp number and a consultatio
   assert.match(url.searchParams.get('text'), /konsultasi harga.*Exclusive Custom Forever/);
 });
 
-test('actual homepage renders demo and consultation links without a custom checkout or editor action', async () => {
+test('actual homepage links to the interactive custom preview and consultation without editor or checkout', async () => {
   const server = await createServer({
     mode: 'production',
     server: { middlewareMode: true, watch: null },
@@ -40,9 +42,12 @@ test('actual homepage renders demo and consultation links without a custom check
     assert.ok(customCard, 'Exclusive Custom card must be visible in the all-designs view');
     assert.match(customCard, /Exclusive Custom/);
     assert.match(customCard, /Harga custom melalui konsultasi WhatsApp\./);
-    assert.match(customCard, /href="[^"]*\/demo\/forever-exclusive"/);
+    assert.match(customCard, /href="[^"]*\/preview\/forever-exclusive"/);
     assert.match(customCard, /href="https:\/\/wa\.me\/6285891828747\?text=/);
     assert.match(customCard, /Konsultasi Harga/);
+    assert.match(customCard, /Lihat Preview/);
+    assert.match(customCard, /aria-label="Lihat Preview Forever"/);
+    assert.doesNotMatch(customCard, /Tonton Preview|Watch Preview|Lihat demo|View demo|\/demo\/forever-exclusive|<iframe/);
     assert.doesNotMatch(customCard, /\/paket|\/portal\/beli|\/builder|Pilih desain/);
     for (const id of ['eloise', 'puspa-jawa', 'jade-dragon']) {
       assert.match(markup, new RegExp(`/demo/${id}`));
