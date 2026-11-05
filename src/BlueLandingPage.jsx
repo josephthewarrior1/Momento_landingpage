@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { APP_URL, CONTACT_EMAIL, WHATSAPP_NUMBER } from './config.js';
+import { getCustomTemplates } from './customTemplates.js';
 import { Brand } from './Brand.jsx';
 import { Workflow, Faq, Closing } from './BlueLandingSections.jsx';
 import { SEO } from './seo.js';
@@ -16,7 +17,7 @@ const COPY = {
     featuresEye: 'DIRANCANG UNTUK HARI ISTIMEWA', featuresTitle: ['Detail kecil.', 'Kesan yang besar.'], featuresIntro: 'Semua yang kalian perlukan untuk mengundang, bercerita, dan menyambut.',
     features: [['palette', 'Desain yang terasa seperti kalian', 'Pilih gaya, isi nama, dan tambahkan foto. Jadikan setiap halaman bagian dari cerita kalian.'], ['heart', 'Lebih dari sekadar “akan hadir”', 'Kumpulkan konfirmasi dan doa baik dari orang-orang terdekat melalui undangan.'], ['image', 'Cerita, foto & lagu kalian', 'Simpan momen favorit dalam galeri dengan musik yang berarti.'], ['pin', 'Waktu dan tempat yang jelas', 'Bantu tamu menemukan jadwal dan lokasi perayaan dengan mudah.'], ['mail', 'Sapaan yang lebih personal', 'Bagikan tautan undangan dengan nama untuk setiap tamu.']],
     palette: 'Pilihan nuansa', wish: '“Bahagia selalu untuk kalian berdua. Sampai bertemu di hari istimewa!”', wishName: 'Nadia · Contoh ucapan', event: 'Resepsi pernikahan', date: 'Sabtu, 12 Juni 2027', time: '16.00 – 20.00 WIB', copied: 'Dengan hangat, untuk', link: 'Tautan personal',
-    collectionEye: 'THE MOMENTO COLLECTION', collectionTitle: ['Beda cerita.', 'Beda cara merayakannya.'], collectionIntro: 'Dari klasik yang anggun sampai sentuhan adat. Temukan desain yang paling dekat dengan kalian.', all: 'Semua', classic: 'Klasik', floral: 'Floral', editorial: 'Editorial', traditional: 'Adat', collectionLink: 'Lihat semua desain', preview: 'Lihat demo', choose: 'Pilih desain',
+    collectionEye: 'THE MOMENTO COLLECTION', collectionTitle: ['Beda cerita.', 'Beda cara merayakannya.'], collectionIntro: 'Dari klasik yang anggun sampai sentuhan adat. Temukan desain yang paling dekat dengan kalian.', all: 'Semua', classic: 'Klasik', floral: 'Floral', editorial: 'Editorial', traditional: 'Adat', exclusive: 'Exclusive Custom', collectionLink: 'Lihat semua desain', preview: 'Lihat demo', choose: 'Pilih desain', customIntro: 'Undangan custom yang dikerjakan khusus bersama tim Momento.', customDescription: 'Nuansa forest green, cincin melayang, dan galeri foto spiral untuk cerita kalian.', customPrice: 'Harga custom melalui konsultasi WhatsApp.', consultPrice: 'Konsultasi Harga',
     hubEye: 'DARI UNDANGAN SAMPAI HARI H', hubTitle: ['Satu tempat.', 'Setiap momen terhubung.'], hubText: 'Siapkan undangan, pantau RSVP, lalu sambut tamu lewat buku tamu digital. Cerita yang indah, persiapan yang tertata.', hubFeatures: [['users', 'Daftar tamu', 'Nama dan tautan personal, tersimpan rapi.'], ['message', 'RSVP & ucapan', 'Lihat jawaban dari undangan kalian.'], ['qr', 'Sambutan tanpa repot', 'Petugas memindai QR atau check-in manual.'], ['chart', 'Rekap kehadiran', 'Pantau siapa yang sudah tiba di acara.']], hubDemo: 'Coba demo buku tamu', hubNote: 'QR, petugas, dan rekap kehadiran tersedia di paket Undangan + Buku Tamu.', guestbook: 'Buku tamu', search: 'Cari contoh nama tamu', present: 'Sudah hadir', waiting: 'Belum hadir', noGuests: 'Nama tidak ditemukan.', guestList: 'Daftar tamu contoh',
     briefTitle: 'Mulai dari cerita kalian.', briefIntro: 'Simpan ide awal atau buka percakapan dengan tim Momento.', name: 'Nama kalian', eventDate: 'Tanggal acara', concept: 'Ceritakan konsepnya', placeholder: 'Misalnya: nuansa biru, foto prewedding, perayaan di taman…', save: 'Unduh rencana', whatsapp: 'Buka WhatsApp', email: 'Buka email', briefNote: 'Rencana diunduh ke perangkatmu. Tidak ada data yang dikirim otomatis.', success: 'Rencana berhasil diunduh.', skip: 'Langsung ke konten',
   },
@@ -28,7 +29,7 @@ const COPY = {
     featuresEye: 'MADE FOR YOUR SPECIAL DAY', featuresTitle: ['Little details.', 'Lasting impressions.'], featuresIntro: 'Everything you need to invite, share your story, and welcome your guests.',
     features: [['palette', 'A design that feels like you', 'Choose a style, add your names and favorite photos. Make every page part of your story.'], ['heart', 'More than an “I’ll be there”', 'Collect RSVPs and warm wishes from your favorite people through your invitation.'], ['image', 'Your photos, story & song', 'Keep your favorite moments in a gallery, with music that means something.'], ['pin', 'The right time and place', 'Help guests find the schedule and location of your celebration with ease.'], ['mail', 'A more personal hello', 'Share an invitation link with each guest’s name.']],
     palette: 'Choose a mood', wish: '“Wishing you both a lifetime of happiness. See you on your special day!”', wishName: 'Nadia · Sample wish', event: 'Wedding reception', date: 'Saturday, 12 June 2027', time: '4 – 8 PM · Jakarta time', copied: 'With a warm welcome, for', link: 'Personal link',
-    collectionEye: 'THE MOMENTO COLLECTION', collectionTitle: ['Different stories.', 'Beautiful ways to tell them.'], collectionIntro: 'From timeless classics to meaningful traditions. Find a design that feels like the two of you.', all: 'All', classic: 'Classic', floral: 'Floral', editorial: 'Editorial', traditional: 'Traditional', collectionLink: 'Explore all designs', preview: 'View demo', choose: 'Choose design',
+    collectionEye: 'THE MOMENTO COLLECTION', collectionTitle: ['Different stories.', 'Beautiful ways to tell them.'], collectionIntro: 'From timeless classics to meaningful traditions. Find a design that feels like the two of you.', all: 'All', classic: 'Classic', floral: 'Floral', editorial: 'Editorial', traditional: 'Traditional', exclusive: 'Exclusive Custom', collectionLink: 'Explore all designs', preview: 'View demo', choose: 'Choose design', customIntro: 'A custom invitation created personally with the Momento team.', customDescription: 'Forest green, floating wedding rings, and a spiral photo gallery for your story.', customPrice: 'Custom pricing through a WhatsApp consultation.', consultPrice: 'Discuss Pricing',
     hubEye: 'FROM THE INVITATION TO THE BIG DAY', hubTitle: ['One place.', 'Every moment connected.'], hubText: 'Create your invitation, follow your RSVPs, then welcome everyone with a digital guestbook. A beautiful story, thoughtfully organized.', hubFeatures: [['users', 'Your guest list', 'Names and personal links, neatly together.'], ['message', 'RSVPs & wishes', 'Keep up with replies to your invitation.'], ['qr', 'A warm, easy welcome', 'Staff scan a QR code or check in manually.'], ['chart', 'Attendance at a glance', 'See who has arrived at your event.']], hubDemo: 'Try the guestbook demo', hubNote: 'QR codes, staff access, and attendance reports come with the Invitation + Guestbook plan.', guestbook: 'Guestbook', search: 'Search sample guests', present: 'Checked in', waiting: 'Not here yet', noGuests: 'No matching names.', guestList: 'Sample guest list',
     briefTitle: 'It starts with your story.', briefIntro: 'Save your first ideas or start a conversation with the Momento team.', name: 'Your names', eventDate: 'Event date', concept: 'Tell us about your idea', placeholder: 'Think blue tones, your favorite photos, a garden celebration…', save: 'Download your plan', whatsapp: 'Open WhatsApp', email: 'Open email', briefNote: 'Your plan downloads to your device. Nothing is sent automatically.', success: 'Your plan has been downloaded.', skip: 'Skip to content',
   },
@@ -92,11 +93,12 @@ const DESIGNS = [
 function Collection({ t }) {
   const [category, setCategory] = useState('all');
   const visible = category === 'all' ? DESIGNS : DESIGNS.filter(d => d.category === category);
+  const customTemplates = getCustomTemplates(category);
   return <section className="bl-section bl-collection" id="designs">
     <div className="bl-container">
       <div className="bl-section-heading"><span className="bl-eyebrow">{t.collectionEye}</span><h2 className="bl-heading">{t.collectionTitle[0]}<br />{t.collectionTitle[1]}</h2><p>{t.collectionIntro}</p></div>
-      <div className="bl-filters" role="group" aria-label={t.collectionLink}>{['all', 'classic', 'floral', 'editorial', 'traditional'].filter(key => key === 'all' || DESIGNS.some(design => design.category === key)).map(key => <button key={key} aria-pressed={category === key} onClick={() => setCategory(key)}>{t[key]}</button>)}</div>
-      <div className="bl-designs" aria-live="polite">
+      <div className="bl-filters" role="group" aria-label={t.collectionLink}>{['all', 'classic', 'floral', 'editorial', 'traditional', 'exclusive'].filter(key => key === 'all' || key === 'exclusive' || DESIGNS.some(design => design.category === key)).map(key => <button key={key} aria-pressed={category === key} onClick={() => setCategory(key)}>{t[key]}</button>)}</div>
+      {!!visible.length && <div className="bl-designs" aria-live="polite">
         {visible.map(design => <article className="bl-template" key={design.id}>
           <a className="bl-template-cover" href={app(`/demo/${design.id}`)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}>
             <img src={asset(design.image || `${design.id}-opening.png`)} alt={`${design.name} — ${t[design.category]}`} loading="lazy" width="390" height="780" />
@@ -109,7 +111,26 @@ function Collection({ t }) {
             </div>
           </div>
         </article>)}
-      </div>
+      </div>}
+      {!!customTemplates.length && <section className="bl-exclusive-collection" aria-labelledby="exclusive-collection-title">
+        <div className="bl-exclusive-heading"><h3 id="exclusive-collection-title">{t.exclusive}</h3><p>{t.customIntro}</p></div>
+        <div className="bl-designs">
+          {customTemplates.map(design => <article className="bl-template bl-template--exclusive" data-template={design.id} key={design.id}>
+            <a className="bl-template-cover" href={app(design.previewPath)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}>
+              <img src={asset(design.image)} alt={`${design.name} — ${t.exclusive}`} loading="lazy" width="390" height="780" />
+            </a>
+            <div className="bl-template-info">
+              <div className="bl-template-title"><div className="bl-template-metadata"><span className="bl-template-category">{t.exclusive}</span><span className="bl-template-note">{design.note}</span></div><h3>{design.name}</h3></div>
+              <p className="bl-exclusive-description">{t.customDescription}</p>
+              <p className="bl-exclusive-price">{t.customPrice}</p>
+              <div className="bl-template-actions">
+                <a className="bl-template-preview" href={app(design.previewPath)} target="_blank" rel="noreferrer" aria-label={`${t.preview} ${design.name}`}>{t.preview}</a>
+                <a className="bl-template-choose" href={design.consultationUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.consultPrice} ${design.name} via WhatsApp`}>{t.consultPrice}</a>
+              </div>
+            </div>
+          </article>)}
+        </div>
+      </section>}
       <a className="bl-button bl-button--outline bl-all-designs" href={app('/koleksi')}>{t.collectionLink}<Icon name="arrow" size={18} /></a>
     </div>
   </section>;

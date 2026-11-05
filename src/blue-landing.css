@@ -58,3 +58,18 @@
 @media(max-width:430px) {
   .bl-template { border-radius: 14px; }
 }
+
+.bl-exclusive-collection { margin-top: 48px; padding-top: 38px; border-top: 1px solid #dfe6f2; }
+.bl-exclusive-heading { margin-bottom: 24px; }
+.bl-exclusive-heading h3 { margin: 0 0 8px; color: #173e2b; font-family: 'Instrument Serif', Georgia, serif; font-size: 32px; font-weight: 400; }
+.bl-exclusive-heading p { margin: 0; color: #6d7889; font-size: 14px; line-height: 1.7; }
+.bl-template--exclusive { border-color: #c8d7cc; }
+.bl-template--exclusive .bl-template-category { border-color: #d2e1d5; color: #29523b; background: #edf4ee; }
+.bl-exclusive-description, .bl-exclusive-price { margin: 0; font-size: 12px; line-height: 1.65; }
+.bl-exclusive-description { color: #697588; }
+.bl-exclusive-price { color: #244631; font-weight: 600; }
+.bl-template--exclusive .bl-template-choose { background: #1d5135; border-color: #1d5135; }
+@media(max-width:760px) {
+  .bl-exclusive-collection { margin-top: 34px; padding-top: 28px; }
+  .bl-exclusive-heading h3 { font-size: 28px; }
+}
